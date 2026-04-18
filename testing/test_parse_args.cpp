@@ -9,11 +9,29 @@ auto word_generator() {
     /* Creates a generator for a string made up of
      * characters from [a - z]
      */
+    int len = rand() % 10 + 1;
+    std::string word = "";
+
+    for (int i = 0 ; i<len ; i++) {
+        char c ='a' + rand() % 26;
+        word += c;
+    }
+
+    return word;
+
 }
 
 auto vector_of_ints_to_vector_of_strings(const std::vector<int>& numbers) {
     /* Create a vector of strings from a vector of ints
      */
+    std::vector<std::string> result;
+
+    for (int num : numbers) {
+        result.push_back(std::to_string(num));
+    }
+
+    return result;
+
 }
 
 
@@ -23,6 +41,7 @@ TEST(ParseArgsTests, SimpleCheckArgumentsParsedSuccessfully) {
      * (ar_out and len_out are set to the right values).
      * Don't forget to free any memory that was dynamically allocated as part of your test.'
      */
+
 }
 
 TEST(ParseArgsTests, SimpleCheckParseNoArgs) {
